@@ -18,7 +18,33 @@ def predict():
 @app.route("/submit", methods=["POST"])
 def submit():
 
-    prediction = model.predict([[0, 1, 0, 1, 0, 5000, 2000, 150, 360, 1, 2]])
+    gender = float(request.form["Gender"])
+    married = float(request.form["Married"])
+    dependents = float(request.form["Dependents"])
+    education = float(request.form["Education"])
+    self_employed = float(request.form["Self_Employed"])
+    applicant_income = float(request.form["ApplicantIncome"])
+    coapplicant_income = float(request.form["CoapplicantIncome"])
+    loan_amount = float(request.form["LoanAmount"])
+    loan_amount_term = float(request.form["Loan_Amount_Term"])
+    credit_history = float(request.form["Credit_History"])
+    property_area = float(request.form["Property_Area"])
+
+    features = [[
+        gender,
+        married,
+        dependents,
+        education,
+        self_employed,
+        applicant_income,
+        coapplicant_income,
+        loan_amount,
+        loan_amount_term,
+        credit_history,
+        property_area
+    ]]
+
+    prediction = model.predict(features)
 
     if prediction[0] == 1:
         result = "Loan Approved ✅"

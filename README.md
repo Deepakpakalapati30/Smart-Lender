@@ -38,6 +38,10 @@ A Flask-based machine learning web application that predicts whether a loan appl
 
 ---
 
+## Live Demo
+https://deepakpakalapati.pythonanywhere.com
+
+---
 ## Project Structure
 
 ```text
